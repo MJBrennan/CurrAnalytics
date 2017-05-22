@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Translator</title>
+</head>
+<body>
+
+<div id="data">
+
+
+
+
+</div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+	
+$(document).ready(function(){
+$.ajax({
+		url:"BasicTranslator.php",
+		method: "get",
+		success:function(data)
+		{
+			var parse = JSON.parse(data);
+			$("#data").append("<p>"+ parse[0]+ "</p><p>"+ parse[1]+ "</p><p>"+ parse[2]+ "</p><p>"+ parse[3]+ "</p>");
+		}
+	});
+
+	var array = {
+	data:"First",more:"this",ok:
+	function(ok){
+		var add = 1 + 1;
+		console.log(add);
+	}};
+	console.log(array.ok);
+
+});
+
+
+
+
+
+</script>
+</body>
+</html>

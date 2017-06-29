@@ -30,8 +30,6 @@
 $(window).ready(function()
 {
 	$("#currency").hide();
-
-
 	$("#clicked").click(function()
 	{
 		getData();

@@ -14,4 +14,10 @@ class StandardController extends Controller
 		$basic = new BasicTranslator();
 		$basic->process($_POST["from"],$_POST["to"],$_POST["amount"]);
 	}
+
+	public function fiveWeeks()
+	{
+		$basic = new BasicTranslator();
+		$basic->lastFiveWeeks();
+	}
 }

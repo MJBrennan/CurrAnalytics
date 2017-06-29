@@ -16,11 +16,10 @@ Route::get('/', function () {
 });
 
 Auth::routes();
+
 Route::get('/home', 'HomeController@index')->name('home');
 
-
 Route::post('/standard','StandardController@convertor');
-
 
 Route::get('/basic', function(){
 	return view('basic');
@@ -30,10 +29,12 @@ Route::get('/procal', function(){
 	return view('advanced');
 });
 
-
 Route::get('/advanced','AdvancedController@advanced');
+Route::get('/datatest','AdvancedController@database');
 
 Route::get('/datatest','AdvancedController@database');
+
+Route::get('/lastfiveweeks','StandardController@fiveWeeks');
 
 
 

@@ -19,6 +19,11 @@
 <div id="currency"></div>
 
 
+
+
+
+
+
 @endsection
 
 
@@ -67,6 +72,9 @@ function getData()
 
 
 });
+
+
+
 
 
 

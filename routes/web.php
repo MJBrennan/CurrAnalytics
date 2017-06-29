@@ -36,6 +36,8 @@ Route::get('/datatest','AdvancedController@database');
 
 Route::get('/lastfiveweeks','StandardController@fiveWeeks');
 
+Route::get('/charts','StandardController@charts');
+
 
 
 

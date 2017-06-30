@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
 Auth::routes();
@@ -24,12 +24,11 @@ Route::post('/standard','StandardController@convertor');
 Route::get('/basic', function(){
 	return view('basic');
 });
-
 Route::get('/procal', function(){
 	return view('advanced');
 });
-
 Route::get('/advanced','AdvancedController@advanced');
+
 Route::get('/datatest','AdvancedController@database');
 
 Route::get('/datatest','AdvancedController@database');
@@ -37,6 +36,17 @@ Route::get('/datatest','AdvancedController@database');
 Route::get('/lastfiveweeks','StandardController@fiveWeeks');
 
 Route::get('/charts','StandardController@charts');
+
+Route::get('/allentries','AccountController@checkRecords');
+
+Route::get('/record','AccountController@individualRecords');
+
+Route::get('/account', function(){
+	return view('account');
+});
+
+
+
 
 
 

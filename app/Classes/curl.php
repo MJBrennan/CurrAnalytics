@@ -83,7 +83,7 @@ namespace App\Classes;
 			//Get Highest Value
 			
 
-			$data = json_encode($this->returnedData,JSON_FORCE_OBJECT);
-			print_r($data);
+			return $this->returnedData;
+		
 		}
 	}

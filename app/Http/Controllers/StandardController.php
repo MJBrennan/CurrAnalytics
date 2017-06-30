@@ -8,7 +8,16 @@ use App\Classes\BasicTranslator;
 
 class StandardController extends Controller
 {
-    //
+
+
+    public function __construct()
+    {
+
+        
+
+
+    }
+
 	public function convertor()
 	{
 		$basic = new BasicTranslator();

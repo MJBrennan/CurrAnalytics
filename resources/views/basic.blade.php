@@ -18,6 +18,8 @@
 <h1>Result</h1>
 <div id="currency"></div>
 
+<canvas id="myChart"></canvas>
+
 
 
 
@@ -29,11 +31,13 @@
 
 
 @section('scripts')
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"/>
+</script>
 <script>
 
 $(window).ready(function()
 {
+  var ctx = document.getElementById('myChart').getContext('2d');
 	$("#currency").hide();
 	$("#clicked").click(function()
 	{
@@ -63,12 +67,60 @@ function getData()
 		}
     });
 
+ $.ajax({
+    method:"post",
+    url:"lastfiveweeks",
+    data:{from:origin,to:from},
+    success: function(response){
+    console.log(response);
+   var response = $.parseJSON(response);
+
+var chart = new Chart(ctx, {
+    // The type of chart we want to create
+    type: 'line',
+
+
+    // The data for our dataset
+    data: {
+        labels: ["January", "February", "March", "April", "May"],
+        datasets: [{
+            label: "My First dataset",
+            backgroundColor: 'rgb(255, 99, 132)',
+            borderColor: 'rgb(255, 99, 132)',
+            data: [response[0], response[1], response[2], response[3], response[4], response[5]],
+        }]
+    },
+
+    // Configuration options go here
+    options: {}
+});
+
+
+
+
+
+
+
+
+
+
+
+
+   
+    }
+    });
+
+
+
+
 
 
 
  $("#currency").show();
 
 }
+
+
 
 
 });

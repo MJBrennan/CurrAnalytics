@@ -8,14 +8,10 @@ use App\Classes\BasicTranslator;
 
 class StandardController extends Controller
 {
-
-
     public function __construct()
     {
 
-        
-
-
+    
     }
 
 	public function convertor()
@@ -27,7 +23,7 @@ class StandardController extends Controller
 	public function fiveWeeks()
 	{
 		$basic = new BasicTranslator();
-		$basic->lastFiveWeeks();
+		$basic->lastFiveWeeks($_POST["from"],$_POST["to"]);
 	}
 
 	public function charts()

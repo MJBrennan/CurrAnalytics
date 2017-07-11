@@ -25,7 +25,7 @@
 
 	//Last 5 Weeks
 
-	public function lastFiveWeeks()
+	public function lastFiveWeeks($origin,$destination)
 	{
 		$days= [];
 		$finalValues = [];
@@ -42,8 +42,8 @@
 		$days[] = $day4;
 		$days[] = $day5;
 		
-		$base = "USD";
-		$against = "EUR";
+		$base = $origin;
+		$against = $destination;
 		foreach ($days as $value) {
 			$request = $this->makeRequest("http://api.fixer.io/".$value."?base=".$base);
 			$finalValues[] = $request;

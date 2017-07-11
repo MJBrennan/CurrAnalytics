@@ -33,7 +33,7 @@ Route::get('/datatest','AdvancedController@database');
 
 Route::get('/datatest','AdvancedController@database');
 
-Route::get('/lastfiveweeks','StandardController@fiveWeeks');
+Route::post('/lastfiveweeks','StandardController@fiveWeeks');
 
 Route::get('/charts','StandardController@charts');
 

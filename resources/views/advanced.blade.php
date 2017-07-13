@@ -3,7 +3,7 @@
 
 
 @section('content')
-
+<div id="inputdiv">
  <form>
  Amount:<br>
   <input type="text" name="amount" id="amount"><br>
@@ -14,9 +14,30 @@
  </form>
 
 <button id="clicked">Submit</button>
+</div>
 
-<h1>Result</h1>
-<div id="currency"></div>
+<div id="result">
+
+<div class="row">
+  <div id="mon" class="col-md-2">Monday<br></div>
+  <div id="tues" class="col-md-2">Tuesday<br></div>
+  <div id="wends" class="col-md-2">Wendnesday<br></div>
+  <div id="thurs" class="col-md-2">Thursday<br></div>
+  <div id="fri" class="col-md-2">Friday<br></div>
+</div>
+
+
+<div class="row">
+  <div id="highest" class="col-md-2">Highest<br></div>
+  <div id="lowest" class="col-md-2">Lowest<br></div>
+</div>
+
+<div class="row">
+  <div id="lowest-one" class="col-md-2">Best<br></div>
+</div>
+  
+</div>
+
 
 
 @endsection
@@ -30,11 +51,12 @@
 $(window).ready(function()
 {
 	$("#currency").hide();
-
+  $("#result").hide();
 
 	$("#clicked").click(function()
 	{
 		getData();
+
 	});
 
 
@@ -50,13 +72,30 @@ function getData()
      }
      });
 
+   /***
+
+   *  Still Need To Sort Out Lowest and Saving
+   *
+   *
+
+   */
+
  $.ajax({
     method:"post",
     url:"advanced",
     data:{from:origin,to:from,amount:amount},
     success: function(response){
     var response = $.parseJSON(response);
-    console.log(response);
+    $("#mon").append("<p>"+response.Monday +"</p>");
+    $("#tues").append("<p>"+response.Tuesday +"</p>");
+    $("#wends").append("<p>"+response.Wednesday +"</p>");
+    $("#thurs").append("<p>"+response.Thursday +"</p>");
+    $("#fri").append("<p>"+response.Friday +"</p>");
+    $("#highest").append("<p>"+response.Highest +"</p>");
+    $("#lowest").append("<p>"+response.Highest +"</p>");
+     $("#lowest-one").append("<p>"+response.Highest +"</p>");
+    $("#inputdiv").hide();
+    $("#result").show();
 		}
     });
 

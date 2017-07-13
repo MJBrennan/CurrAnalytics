@@ -10,10 +10,10 @@ use App\Exec;
 class AdvancedController extends Controller
 {
 
-public function advanced()
+public function advanced(Request $request)
 {
 
-	$advanced = new Curl("1","USD","EUR");
+	$advanced = new Curl($request->input("amount"),$request->input("from"),$request->input("to"));
 	$array = json_decode(json_encode($advanced), true);
 	$days = $array['returnedData'];
 	$lowestAvg = $days["LowestAverage"][0].", ".$days["LowestAverage"][1];
@@ -36,5 +36,7 @@ public function advanced()
 			$saveData->saving = $days['Saving'];
 			$saveData->save();
 		}
+
+		print_r(json_encode($days));
 	}
 }

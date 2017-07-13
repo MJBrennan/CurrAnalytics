@@ -27,7 +27,7 @@ Route::get('/basic', function(){
 Route::get('/procal', function(){
 	return view('advanced');
 });
-Route::get('/advanced','AdvancedController@advanced');
+Route::post('/advanced','AdvancedController@advanced');
 
 Route::get('/datatest','AdvancedController@database');
 

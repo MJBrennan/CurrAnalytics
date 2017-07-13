@@ -16,7 +16,7 @@ class AccountController extends Controller
 		{
 			$auth = Auth::user()->id;
 			$data = DB::table('exec')->where('user_id',$auth)->get();
-			var_dump($data);
+			return view('account')->with('name', $data);
 		}
 		else{
 			echo "Need to be logged in";
@@ -27,12 +27,9 @@ class AccountController extends Controller
 
 	public function individualRecords()
 		{
-			$data = DB::table('exec')->where('id','=','2')->get();
-			var_dump($data);
+			$data = DB::table('exec')->where('id','=','1')->get();
+			return view('account')->with('name', $data);
 		}
-
-
-
 }
 
 

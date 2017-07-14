@@ -25,10 +25,11 @@ class AccountController extends Controller
 	}
 
 
-	public function individualRecords()
+	public function individualRecords($recordid)
 		{
-			$data = DB::table('exec')->where('id','=','1')->get();
-			return view('account')->with('name', $data);
+			$data = DB::table('exec')->where('id','=',$recordid)->get();
+			//return view('account')->with('name', $data);
+			var_dump($data);
 		}
 }
 

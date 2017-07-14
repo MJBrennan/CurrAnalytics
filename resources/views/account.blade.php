@@ -7,15 +7,10 @@
 
 <ul>
 @foreach ($name as $user)
-<li id="item">
-<p>Date of transcation: {{$user->created_at}}</p>
-<p>Initial Amount: {{$user->init_amount}}</p>
-<p>Converted Amount: {{$user->converted_amount}}</p>
-<p>From: USD</p>
-<p>To: EUR</p>
-</li>
+<a href="record/{{$user->id}}"><li id="item">
+<p>Date of transcation: {{$user->created_at}}, Initial Amount: {{$user->init_amount}},Converted Amount: {{$user->converted_amount}}, From: USD, To: EUR</p></li>
 @endforeach
-</ul>
+</ul></a>
 
 
 @endsection

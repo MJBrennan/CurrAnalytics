@@ -39,11 +39,16 @@ Route::get('/charts','StandardController@charts');
 
 Route::get('/allentries','AccountController@checkRecords');
 
-Route::get('/record','AccountController@individualRecords');
+Route::get('/record/{recordid}','AccountController@individualRecords');
 
 Route::get('/account', function(){
 	return view('account');
 });
+
+Route::get('/prefs', function(){
+	return view('prefs');
+});
+
 
 
 

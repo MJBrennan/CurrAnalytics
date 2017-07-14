@@ -69,7 +69,7 @@
                                             Logout
                                         </a>
 
-                                         <a href="account">
+                                         <a href="allentries">
                                             Account
                                         </a>
 

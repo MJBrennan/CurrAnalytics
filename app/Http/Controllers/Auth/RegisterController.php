@@ -6,6 +6,8 @@ use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Foundation\Auth\ThrottlesLogins;
+use Socialite;
 
 class RegisterController extends Controller
 {
@@ -21,6 +23,7 @@ class RegisterController extends Controller
     */
 
     use RegistersUsers;
+    use ThrottlesLogins;
 
     /**
      * Where to redirect users after registration.
@@ -67,5 +70,30 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
+    }
+
+
+    public function redirectToGoogle()
+    {
+        return Socialite::driver('google')->redirect();
+    }
+
+    public function handleGoogleCallback()
+    {
+            $user = Socialite::driver('google')->user();
+            var_dump($user);
+           
+        /**
+
+            $userModel = new User;
+            $createdUser = $userModel->addNew($user);
+            Auth::loginUsingId($createdUser->id);
+            return redirect()->route('home');
+
+        **/
+
+
+        
+        
     }
 }

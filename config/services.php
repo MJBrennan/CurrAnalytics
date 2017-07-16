@@ -35,4 +35,11 @@ return [
         'secret' => env('STRIPE_SECRET'),
     ],
 
+    'google' => [
+
+        'client_id' => '314181283443-m3fofgi4bveg5gf20ofqcqtmg1r9f0mc.apps.googleusercontent.com',
+        'client_secret' => 'I0wZeVPyU8dhISIfoJU4RHEH',
+        'redirect' => 'http://localhost/CurrencyApp/public/auth/google/callback',
+    ]
+
 ];

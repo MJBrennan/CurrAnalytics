@@ -50,6 +50,10 @@ Route::get('/prefs', function(){
 });
 
 
+Route::get('auth/google', 'Auth\RegisterController@redirectToGoogle');
+Route::get('auth/google/callback', 'Auth\RegisterController@handleGoogleCallback');
+
+
 
 
 

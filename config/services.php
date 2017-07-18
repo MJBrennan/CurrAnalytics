@@ -39,7 +39,7 @@ return [
 
         'client_id' => '314181283443-m3fofgi4bveg5gf20ofqcqtmg1r9f0mc.apps.googleusercontent.com',
         'client_secret' => 'I0wZeVPyU8dhISIfoJU4RHEH',
-        'redirect' => 'http://localhost/CurrencyApp/public/auth/google/callback',
+        'redirect' => 'http://127.0.0.1:8000/auth/google/callback',
     ]
 
 ];

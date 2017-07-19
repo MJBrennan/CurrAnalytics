@@ -1,4 +1,4 @@
-function ajaxLoader(type,url)
+function ajaxLoader()
 {
  $.ajaxSetup({
      headers: {
@@ -7,11 +7,11 @@ function ajaxLoader(type,url)
      });
 
 $.ajax({
-    get:type,
-    url:url,
+    get:"get",
+    url:"prefs",
     success:function(data)
     {
-    alert("Working");
+    console.log(data);
     }
     });
 

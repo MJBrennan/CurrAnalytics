@@ -4,7 +4,6 @@
 
 @section('content')
 <h1>Account Page!</h1>
-
 <ul>
 @foreach ($name as $user)
 <a href="record/{{$user->id}}"><li id="item">
@@ -18,7 +17,6 @@
 
 
 @section('scripts')
-
 <script>
 
 $(document).ready(function(){
@@ -36,6 +34,8 @@ $(document).ready(function(){
 
 
 	});
+
+
 
 
 

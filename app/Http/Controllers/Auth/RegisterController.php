@@ -80,8 +80,30 @@ class RegisterController extends Controller
 
     public function handleGoogleCallback()
     {
-            $user = Socialite::driver('google')->user();
-            var_dump($user);
+        try{
+            $userId = Socialite::driver('google')->user();
+            var_dump($userId);
+        }catch(Execption $ex)
+        {
+            return redirect("/");
+
+        }
+
+        $user = User::where('google_id',$userId->getId())->first();
+
+            if(!$user)
+                User::create([
+                    'google_id'=> $userId->getId(),
+                    'name'=> $userId->getName(),
+                    'email'=> $userId->getEmail(),
+                    ]);
+
+            auth()->login($user);
+
+            return redirect()->to('/');
+
+
+    
            
         /**
 

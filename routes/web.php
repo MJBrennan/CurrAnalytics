@@ -37,6 +37,8 @@ Route::post('/lastfiveweeks','StandardController@fiveWeeks');
 
 Route::get('/charts','StandardController@charts');
 
+Route::get('/currentday','AdvancedController@currentDay');
+
 Route::get('/allentries','AccountController@checkRecords');
 
 Route::get('/record/{recordid}','AccountController@individualRecords');

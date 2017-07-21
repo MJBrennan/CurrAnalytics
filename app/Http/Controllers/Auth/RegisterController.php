@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Socialite;
+use Auth;
 
 class RegisterController extends Controller
 {
@@ -98,8 +99,10 @@ class RegisterController extends Controller
                     'email'=> $userId->getEmail(),
                     ]);
 
-            auth()->login($user);
+            
 
+
+            Auth::login($user);
             return redirect()->to('/');
 
 

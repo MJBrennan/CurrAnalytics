@@ -80,10 +80,11 @@ namespace App\Classes;
 			$search = array_search($minVal,$this->returnedData);
 			$this->returnedData['LowestAverage'][] = $minVal;
 			$this->returnedData['LowestAverage'][] = $search;
-			//Get Highest Value
+			//Current Day of The Wekk
+			$date = date("l");
+			$this->returnedData['CurrentDay'][] = $date;
 			
 
 			return $this->returnedData;
-		
 		}
 	}

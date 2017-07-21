@@ -39,4 +39,10 @@ public function advanced(Request $request)
 
 		print_r(json_encode($days));
 	}
+
+
+
+
+
+
 }

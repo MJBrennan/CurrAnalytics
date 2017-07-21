@@ -24,6 +24,8 @@
   <div id="wends" class="col-md-2">Wendnesday<br></div>
   <div id="thurs" class="col-md-2">Thursday<br></div>
   <div id="fri" class="col-md-2">Friday<br></div>
+   <div id="fri" class="col-md-2">Todays Date:<br></div>
+
 </div>
 
 
@@ -34,6 +36,10 @@
 
 <div class="row">
   <div id="lowest-one" class="col-md-2">Best<br></div>
+</div>
+
+<div class="row">
+<div id="todaysday" class="col-md-2">Todays Day:<br></div>
 </div>
   
 </div>
@@ -85,6 +91,7 @@ function getData()
     url:"advanced",
     data:{from:origin,to:from,amount:amount},
     success: function(response){
+    console.log(response);
     var response = $.parseJSON(response);
     $("#mon").append("<p>"+response.Monday +"</p>");
     $("#tues").append("<p>"+response.Tuesday +"</p>");
@@ -93,11 +100,27 @@ function getData()
     $("#fri").append("<p>"+response.Friday +"</p>");
     $("#highest").append("<p>"+response.Highest +"</p>");
     $("#lowest").append("<p>"+response.Highest +"</p>");
-     $("#lowest-one").append("<p>"+response.Highest +"</p>");
+    $("#lowest-one").append("<p>"+response.Highest +"</p>");
+    $("#todaysday").append("<p>"+response.CurrentDay +"</p>");
     $("#inputdiv").hide();
     $("#result").show();
+
+    if(response.CurrentDay == response.Highest)
+    {
+      $('#todaysday').css( "color", "green" );
+
+    }else{
+
+       $('#todaysday').css( "color", "red" );
+    }
+
+
+
+
 		}
     });
+
+
 
 
 

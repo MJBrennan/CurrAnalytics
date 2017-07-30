@@ -12,6 +12,26 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <style>
+
+
+
+    #app{
+
+        background-color:#ffffff;
+
+       }
+
+        html{
+
+         background-color:#ffffff;
+
+           }
+
+
+
+
+    </style>
 
     <!-- Scripts -->
     <script>
@@ -21,6 +41,7 @@
     </script>
 </head>
 <body>
+
     <div id="app">
         <nav class="navbar navbar-default navbar-static-top">
             <div class="container">
@@ -84,6 +105,7 @@
                 </div>
             </div>
         </nav>
+
 
         @yield('content')
     </div>

@@ -13,25 +13,27 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <style>
-
-
-
     #app{
 
         background-color:#ffffff;
-
        }
-
-        html{
+     html{
 
          background-color:#ffffff;
 
-           }
+        }
+
+        .page-header{
+
+         text-align: center;
+
+        }
 
 
 
 
     </style>
+     @yield('style')
 
     <!-- Scripts -->
     <script>

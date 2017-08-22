@@ -2,7 +2,49 @@
 @extends('layouts.app')
 
 
+@section('style')
+
+<style>
+
+.col-md-2{
+  margin-bottom: 100px;
+}
+
+.row{
+    margin: 0 auto;
+    width:80%;
+    color:#fff;
+}
+
+
+.row :nth-child(even){
+  background-color: #5cb85c;
+}
+.row :nth-child(odd){
+  background-color: #5bc0de;
+}
+
+
+
+
+
+</style>
+
+
+@endsection
+
+
+
 @section('content')
+
+<div class="page-header">
+   
+   <h4>
+      Advanced Converter 
+   </h4>
+   
+</div>
+
 <div id="inputdiv">
  <form>
  Amount:<br>
@@ -19,27 +61,33 @@
 <div id="result">
 
 <div class="row">
+<center>
   <div id="mon" class="col-md-2">Monday<br></div>
   <div id="tues" class="col-md-2">Tuesday<br></div>
   <div id="wends" class="col-md-2">Wendnesday<br></div>
   <div id="thurs" class="col-md-2">Thursday<br></div>
   <div id="fri" class="col-md-2">Friday<br></div>
-   <div id="fri" class="col-md-2">Todays Date:<br></div>
-
+</center>
 </div>
 
 
 <div class="row">
+<center>
   <div id="highest" class="col-md-2">Highest<br></div>
   <div id="lowest" class="col-md-2">Lowest<br></div>
+  </center>
 </div>
 
 <div class="row">
+<center>
   <div id="lowest-one" class="col-md-2">Best<br></div>
+<center>
 </div>
 
-<div class="row">
+<div  class="row">
+<center>
 <div id="todaysday" class="col-md-2">Todays Day:<br></div>
+</center>
 </div>
   
 </div>
@@ -64,6 +112,9 @@ $(window).ready(function()
 		getData();
 
 	});
+
+
+
 
 
 function getData()

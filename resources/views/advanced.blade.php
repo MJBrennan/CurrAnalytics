@@ -150,8 +150,8 @@ function getData()
     $("#thurs").append("<p>"+response.Thursday +"</p>");
     $("#fri").append("<p>"+response.Friday +"</p>");
     $("#highest").append("<p>"+response.Highest +"</p>");
-    $("#lowest").append("<p>"+response.Highest +"</p>");
-    $("#lowest-one").append("<p>"+response.Highest +"</p>");
+    $("#lowest").append("<p>"+response.LowestAverage[0] +"</p>");
+    $("#lowest-one").append("<p>"+response.LowestAverage[1] +"</p>");
     $("#todaysday").append("<p>"+response.CurrentDay +"</p>");
     $("#inputdiv").hide();
     $("#result").show();

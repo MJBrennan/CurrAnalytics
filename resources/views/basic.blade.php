@@ -43,7 +43,7 @@ button{
   <div class = "panel-body">
  <form>
  Amount:<br>
-  <input class="form-control" style="width:20%;" placeholder="Amount" type="text" name="amount" id="amount"><br>
+  <input class="form-control" style="width:100px;" placeholder="Amount" type="text" name="amount" id="amount"><br>
   <div class="dropdown">
   <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" style="margin-bottom:5px;">
     Select From:
@@ -55,7 +55,7 @@ button{
     <li><span>&pound;</span></li>
   </ul>
 </div>
-  <input class="form-control" type="text" name="to" id="to" disabled><br>
+  <input class="form-control" style="width:200px;" type="text" name="to" id="to" disabled><br>
     <div class="dropdown">
   <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" style="margin-bottom:5px;">
     Select To:
@@ -67,12 +67,10 @@ button{
     <li><span>&pound;</span></li>
   </ul>
 </div>
-  <input class="form-control" type="text" name="from" id="from" disabled>
+  <input style="width:200px;" class="form-control" type="text" name="from" id="from" disabled>
  </form>
 
 <button style="margin-top:10px;" class="btn btn-primary" id="clicked">Submit</button>
-
-<h1>Result</h1>
 </div>
 </div>
 <div id="result-panel">

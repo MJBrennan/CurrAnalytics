@@ -30,7 +30,7 @@ namespace App\Classes;
 		{
 			
 			$userInput = $this->input;
-			for($i=-1;$i >= -57 ;$i--)
+			for($i=-1;$i >= -90 ;$i--)
 			{
 			$yesterday = date("Y-m-d",strtotime($i."days"));
 			$dayofweek = $this->dayOfWeek($yesterday);
@@ -41,10 +41,13 @@ namespace App\Classes;
 			$amount = $rates * $userInput;
 			$this->currencyData[$dayofweek][] = $amount;
 			$count = count($this->currencyData[$dayofweek]);
-			if($count>8)
+		
+			if($count === 12)
 			{
 				array_pop($this->currencyData[$dayofweek]);
 			}
+		
+		
 		}
 
 		return $this->currencyData;
@@ -58,19 +61,19 @@ namespace App\Classes;
 			unset($addition['Saturday']);
 			//Add all for Each Day
 			$averagemon = array_sum($addition['Monday']);
-			$averagemon = $averagemon / 8;
+			$averagemon = $averagemon / 12;
 			$this->returnedData['Monday'] = $averagemon;
 			$averagetues = array_sum($addition['Tuesday']);
-			$averagetues = $averagetues / 8;
+			$averagetues = $averagetues / 12;
 			$this->returnedData['Tuesday'] = $averagetues;
 			$averagewes = array_sum($addition['Wednesday']);
-			$averagewes = 	$averagewes / 8;
+			$averagewes = 	$averagewes / 12;
 			$this->returnedData['Wednesday'] = $averagewes;
 			$averagethurs = array_sum($addition['Thursday']);
-			$averagethurs = $averagethurs/ 8;
+			$averagethurs = $averagethurs/ 12;
 			$this->returnedData['Thursday'] = $averagethurs;
 			$averagefri = array_sum($addition['Friday']);
-			$averagefri = $averagefri / 8;
+			$averagefri = $averagefri / 12;
 			$this->returnedData['Friday'] = $averagefri;
 			$h = max($this->returnedData);
 			$minVal = min($this->returnedData);
@@ -83,8 +86,6 @@ namespace App\Classes;
 			//Current Day of The Wekk
 			$date = date("l");
 			$this->returnedData['CurrentDay'][] = $date;
-			
-
 			return $this->returnedData;
 		}
 	}

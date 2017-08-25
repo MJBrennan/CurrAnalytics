@@ -13,15 +13,6 @@
 .row{
     margin: 0 auto;
     width:80%;
-    color:#fff;
-}
-
-
-.row :nth-child(even){
-  background-color: #5cb85c;
-}
-.row :nth-child(odd){
-  background-color: #5bc0de;
 }
 
 
@@ -142,17 +133,17 @@ function getData()
     url:"advanced",
     data:{from:origin,to:from,amount:amount},
     success: function(response){
-    console.log(response);
     var response = $.parseJSON(response);
-    $("#mon").append("<p>"+response.Monday +"</p>");
-    $("#tues").append("<p>"+response.Tuesday +"</p>");
-    $("#wends").append("<p>"+response.Wednesday +"</p>");
-    $("#thurs").append("<p>"+response.Thursday +"</p>");
-    $("#fri").append("<p>"+response.Friday +"</p>");
-    $("#highest").append("<p>"+response.Highest +"</p>");
-    $("#lowest").append("<p>"+response.LowestAverage[0] +"</p>");
-    $("#lowest-one").append("<p>"+response.LowestAverage[1] +"</p>");
-    $("#todaysday").append("<p>"+response.CurrentDay +"</p>");
+    var monday = response.Monday;
+    $("#mon").append("<p>"+ origin +response.Monday.toFixed(2) +"</p>");
+    $("#tues").append("<p>"+ origin +response.Tuesday.toFixed(2) +"</p>");
+    $("#wends").append("<p>"+ origin +response.Wednesday.toFixed(2) +"</p>");
+    $("#thurs").append("<p>"+ origin +response.Thursday.toFixed(2) +"</p>");
+    $("#fri").append("<p>"+ origin +response.Friday.toFixed(2) +"</p>");
+    $("#highest").append("<p>"+ origin +response.Highest.toFixed(2) +"</p>");
+    $("#lowest").append("<p>"+ origin +response.LowestAverage[0] +"</p>");
+    $("#lowest-one").append("<p>" + response.LowestAverage[1]+"</p>");
+    $("#todaysday").append("<p>" + response.CurrentDay +"</p>");
     $("#inputdiv").hide();
     $("#result").show();
 

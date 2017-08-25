@@ -1,6 +1,30 @@
 
 @extends('layouts.app')
 
+@section('style')
+
+<style>
+
+#panel-width{
+width:50%;
+margin-left:auto;
+margin-right:auto;
+}
+
+#myChart{
+width:50%;
+margin-left:auto;
+margin-right:auto;
+}
+
+button{
+
+  margin-bottom:30px;
+
+}
+
+</style>
+
 
 @section('content')
 
@@ -12,12 +36,16 @@
    
 </div>
 
-
+<div class = "panel panel-primary" id="panel-width">
+<div class = "panel-heading">
+      <h3 class = "panel-title">Enter Details</h3>
+   </div>
+  <div class = "panel-body">
  <form>
  Amount:<br>
   <input class="form-control" style="width:20%;" placeholder="Amount" type="text" name="amount" id="amount"><br>
   <div class="dropdown">
-  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" style="margin-bottom:5px;">
     Select From:
     <span class="caret"></span>
   </button>
@@ -27,9 +55,9 @@
     <li><span>&pound;</span></li>
   </ul>
 </div>
-  <input class="form-control" type="text" name="to" id="to" ><br>
+  <input class="form-control" type="text" name="to" id="to" disabled><br>
     <div class="dropdown">
-  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" style="margin-bottom:5px;">
     Select To:
     <span class="caret"></span>
   </button>
@@ -39,15 +67,34 @@
     <li><span>&pound;</span></li>
   </ul>
 </div>
-  <input class="form-control" type="text" name="from" id="from">
+  <input class="form-control" type="text" name="from" id="from" disabled>
  </form>
 
 <button style="margin-top:10px;" class="btn btn-primary" id="clicked">Submit</button>
 
 <h1>Result</h1>
-<div id="currency"></div>
+</div>
+</div>
+<div id="result-panel">
 
-<canvas id="myChart"></canvas>
+<div class = "panel panel-primary" id="panel-width">
+<div class = "panel-heading">
+      <h3 class = "panel-title">Result</h3>
+   </div>
+  <div class = "panel-body">
+
+  <div id="currency"><h1></h1></div>
+  <center><p>Last Five Months:</p></center>
+  <canvas id="myChart"></canvas>
+
+  </div>
+
+  <center><button  onclick="window.location.reload()" id="start-over" class="btb btn-primary" style="margin:20px;">Start Over</button></center>
+
+</div>
+</div>
+
+
 
 
 
@@ -93,7 +140,7 @@ $('#list2 li').click(function(e)
 
 
   var ctx = document.getElementById('myChart').getContext('2d');
-	$("#currency").hide();
+	$("#result-panel").hide();
 	$("#clicked").click(function()
 	{
 		getData();
@@ -107,6 +154,7 @@ function getData()
 	 var from = $("#from").val();
    origin = currdata[origin];
    from = currdata[from];
+
 	
 	 $.ajaxSetup({
      headers: {
@@ -120,7 +168,12 @@ function getData()
     data:{from:origin,to:from,amount:amount},
     success: function(response){
     var response = $.parseJSON(response);
-    $("#currency").append("<h4>"+ amount +" " +response[0]+ " in "+ response[1] +" is " + response[3] + " on " + response[2] + "</h4>");
+    var invert = _.invert(currdata);
+    console.log(response);
+    console.log(invert);
+    $("#panel-width").hide();
+    console.log(invert[response[0]]);
+    $("#currency").append("<center><h4>"+ amount +" " + invert[response[0]]+ " in "+ invert[response[1]] +" is " + response[3] + " <br>Date: " + response[2] + "</h4></center>");
 		}
     });
 
@@ -129,7 +182,6 @@ function getData()
     url:"lastfiveweeks",
     data:{from:origin,to:from},
     success: function(response){
-    console.log(response);
    var response = $.parseJSON(response);
 
 var chart = new Chart(ctx, {
@@ -171,7 +223,7 @@ var chart = new Chart(ctx, {
 
 
 
- $("#currency").show();
+ $("#result-panel").show();
 
  
 

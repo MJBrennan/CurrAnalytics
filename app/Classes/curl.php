@@ -86,8 +86,6 @@ namespace App\Classes;
 			//Current Day of The Wekk
 			$date = date("l");
 			$this->returnedData['CurrentDay'][] = $date;
-			
-
 			return $this->returnedData;
 		}
 	}

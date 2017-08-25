@@ -15,7 +15,7 @@ class AccountController extends Controller
 		if(Auth::check())
 		{
 			$auth = Auth::user()->id;
-			$data = DB::table('exec')->where('user_id',$auth)->get();
+			$data = DB::table('exec')->where('user_id',$auth)->paginate(5);
 			return view('account')->with('name', $data);
 		}
 		else{
@@ -29,7 +29,7 @@ class AccountController extends Controller
 		{
 			$data = DB::table('exec')->where('id','=',$recordid)->get();
 			//return view('account')->with('name', $data);
-			var_dump($data);
+			return view('recordview')->with('data',$data);
 		}
 }
 

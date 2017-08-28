@@ -63,15 +63,7 @@ button{
 <button style="margin-top:10px;" class="btn btn-primary" id="clicked">Submit</button>
 </div>
 </div>
-<div id="result-panel">
-Basic Converter
-
-Result
-
-10 € in £ is 9.2328 
-Date: 2017-08-28
-
-Last Five Months:
+<div id="result-panel" style="display:none">
 <div class = "panel panel-primary" id="panel-width">
 <div class = "panel-heading">
       <h3 class = "panel-title">Result</h3>
@@ -115,7 +107,7 @@ Last Five Months:
 $(window).ready(function()
 {
 
-var currdata = {"€":"EUR","£":"GBP"};
+var currdata = {"€":"EUR","£":"GBP","$":"USD"};
 
 
 
@@ -138,10 +130,13 @@ $('#list2 li').click(function(e)
 
 
   var ctx = document.getElementById('myChart').getContext('2d');
-	$("#result-panel").hide();
 	$("#clicked").click(function()
 	{
 		getData();
+    setTimeout(function(){
+   $("#result-panel").show();
+   $.LoadingOverlay("hide");
+  }, 2000); 
 	});
 
 
@@ -183,10 +178,31 @@ function getData()
     success: function(response){
    var response = $.parseJSON(response);
 
+//Contrived way of getting the last 5 months for the chart
+/**
+   months = [];
+   dt = new Date;
+   month = dt.getMonth();
+  var monthNames = [ "January", "February", "March", "April", "May", "June",
+  "July", "August", "September", "October", "November", "December" ];
+
+  var time = month - 5;
+
+  for($i=month;$i<=time;$i--)
+  {
+    months = monthNames[$i];
+  }
+  
+console.log(months);
+
+**/
+
+
+
+
 var chart = new Chart(ctx, {
     // The type of chart we want to create
     type: 'line',
-
 
     // The data for our dataset
     data: {
@@ -195,7 +211,7 @@ var chart = new Chart(ctx, {
             label: "My First dataset",
             backgroundColor: 'rgb(255, 99, 132)',
             borderColor: 'rgb(255, 99, 132)',
-            data: [response[0], response[1], response[2], response[3], response[4], response[5]],
+            data: [response[4], response[3], response[2], response[1], response[0]],
         }]
     },
 
@@ -219,10 +235,6 @@ var chart = new Chart(ctx, {
 
 
 
-
-
-$.LoadingOverlay("hide");
- $("#result-panel").show();
 
  
 

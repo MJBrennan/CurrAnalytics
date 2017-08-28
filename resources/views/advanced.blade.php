@@ -6,13 +6,17 @@
 
 <style>
 
-.col-md-2{
-  margin-bottom: 100px;
-}
+
 
 .row{
     margin: 0 auto;
     width:80%;
+}
+
+.row{
+
+  font-size:20px;
+
 }
 
 
@@ -44,7 +48,7 @@
   <div class = "panel-body">
  <form>
  Amount:<br>
-  <input class="form-control" style="width:100px;" placeholder="Amount" type="text" name="amount" id="amount"><br>
+  <input class="form-control" placeholder="Amount" type="text" name="amount" id="amount"><br>
   <div class="dropdown">
   <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" style="margin-bottom:5px;">
     Select From:
@@ -56,7 +60,7 @@
     <li><span>&pound;</span></li>
   </ul>
 </div>
-  <input class="form-control" style="width:200px;" type="text" name="to" id="to" disabled><br>
+  <input class="form-control" type="text" name="to" id="to" disabled><br>
     <div class="dropdown">
   <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" style="margin-bottom:5px;">
     Select To:
@@ -76,9 +80,9 @@
 </div>
 </div>
 
-<div id="result" style="margin-left:10%;">
+<div id="result">
 <center>
-<div class="row" style="width:100%;">
+<div class="row">
   <div id="mon" class="col-md-2">Monday<br></div>
   <div id="tues" class="col-md-2">Tuesday<br></div>
   <div id="wends" class="col-md-2">Wendnesday<br></div>
@@ -88,18 +92,18 @@
 </center>
 
 <center>
-<div class="row" style="margin-left:25%;">
+<div class="row">
   <div id="highest" class="col-md-2">Highest<br></div>
   <div id="lowest" class="col-md-2">Lowest<br></div>
 </div>
   </center>
 <center>
-<div class="row" style="margin-left:30%;">
-  <div id="lowest-one" class="col-md-2" style="font-size:20px;">Best<br></div>
+<div class="row">
+ <b><div id="lowest-one" class="col-md-2" style="font-size:20px;">Best<br></div></b>
 </div>
 </center>
 
-<div  class="row" style="margin-left:30%;">
+<div  class="row">
 <center>
 <div id="todaysday" class="col-md-2">Todays Day:<br></div>
 </center>
@@ -120,7 +124,7 @@
 
 $("#result").hide();
 
-var currdata = {"€":"EUR","£":"GBP"};
+var currdata = {"€":"EUR","£":"GBP","$":"USD"};
 
 
 $('#list li').click(function(e) 

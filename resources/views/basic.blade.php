@@ -5,17 +5,6 @@
 
 <style>
 
-#panel-width{
-width:50%;
-margin-left:auto;
-margin-right:auto;
-}
-
-#myChart{
-width:50%;
-margin-left:auto;
-margin-right:auto;
-}
 
 button{
 
@@ -28,14 +17,15 @@ button{
 
 @section('content')
 
+
+
 <div class="page-header">
-   
    <h4>
      Basic Converter 
    </h4>
-   
 </div>
 
+<div class="col-md-8 col-md-offset-2">
 <div class = "panel panel-primary" id="panel-width">
 <div class = "panel-heading">
       <h3 class = "panel-title">Enter Details</h3>
@@ -74,7 +64,14 @@ button{
 </div>
 </div>
 <div id="result-panel">
-
+Basic Converter
+
+Result
+
+10 € in £ is 9.2328 
+Date: 2017-08-28
+
+Last Five Months:
 <div class = "panel panel-primary" id="panel-width">
 <div class = "panel-heading">
       <h3 class = "panel-title">Result</h3>
@@ -91,6 +88,10 @@ button{
 
 </div>
 </div>
+</div>
+
+
+
 
 
 
@@ -113,7 +114,6 @@ button{
 
 $(window).ready(function()
 {
-
 
 var currdata = {"€":"EUR","£":"GBP"};
 
@@ -147,6 +147,7 @@ $('#list2 li').click(function(e)
 
 function getData()
 {
+  $.LoadingOverlay("show");
 	 var amount = $("#amount").val();
 	 var origin = $("#to").val();
 	 var from = $("#from").val();
@@ -220,7 +221,7 @@ var chart = new Chart(ctx, {
 
 
 
-
+$.LoadingOverlay("hide");
  $("#result-panel").show();
 
  

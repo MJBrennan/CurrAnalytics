@@ -83,7 +83,6 @@ class RegisterController extends Controller
     {
         try{
             $userId = Socialite::driver('google')->user();
-            var_dump($userId);
         }catch(Execption $ex)
         {
             return redirect("/");

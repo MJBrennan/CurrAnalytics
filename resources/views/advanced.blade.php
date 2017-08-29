@@ -14,8 +14,12 @@
 }
 
 .row{
-
   font-size:20px;
+}
+
+.centered-row
+{ 
+  margin: auto; max-width: 300px;
 
 }
 
@@ -81,7 +85,8 @@
 </div>
 
 <div id="result">
-<center>
+
+<div class="col-md-offset-2">
 <div class="row">
   <div id="mon" class="col-md-2">Monday<br></div>
   <div id="tues" class="col-md-2">Tuesday<br></div>
@@ -89,24 +94,26 @@
   <div id="thurs" class="col-md-2">Thursday<br></div>
   <div id="fri" class="col-md-2">Friday<br></div>
 </div>
-</center>
+</div>
 
-<center>
+
+<div class="col-md-offset-2">
 <div class="row">
   <div id="highest" class="col-md-2">Highest<br></div>
   <div id="lowest" class="col-md-2">Lowest<br></div>
 </div>
-  </center>
-<center>
+</div>
+ 
+<div class="col-md-offset-2">
 <div class="row">
  <b><div id="lowest-one" class="col-md-2" style="font-size:20px;">Best<br></div></b>
 </div>
-</center>
+</div>
 
+<div class="col-md-offset-2">
 <div  class="row">
-<center>
 <div id="todaysday" class="col-md-2">Todays Day:<br></div>
-</center>
+</div>
 </div>
   
 </div>

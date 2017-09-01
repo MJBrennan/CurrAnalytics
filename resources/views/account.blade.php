@@ -18,20 +18,25 @@
 @section('content')
 
 <div class="page-header">
-   
    <h4>
-     Your Account
+     Your Account<br>
+<br>
+     Past Searches:
    </h4>
-   
 </div>
 <div class="row">
+
+
+
 
 <center><ul class="list-group">
 @foreach ($name as $user)
 <a href="record/{{$user->id}}"><li class="list-group-item list-group-item-info" id="item">
-<p>Date of transcation: {{$user->created_at}}, Initial Amount: {{$user->init_amount}},Converted Amount: {{$user->converted_amount}}, From: USD, To: EUR</p></li></a>
+<p>Date of transcation: {{$user->created_at}}, Initial Currency: {{$user->init_amount}},Converted Currency: {{$user->converted_amount}}, Amount {{$user->day}}</p></li></a>
 @endforeach
 </ul></center>
+
+
 
 <div class="row">
 

@@ -16,16 +16,15 @@ public function advanced(Request $request)
 	$advanced = new Curl($request->input("amount"),$request->input("from"),$request->input("to"));
 	$array = json_decode(json_encode($advanced), true);
 	$days = $array['returnedData'];
-	$lowestAvg = $days["LowestAverage"][0].", ".$days["LowestAverage"][1];
+	$lowestAvg = number_format($days["LowestAverage"][0],2).", ". $days["LowestAverage"][1];
 	
 		if(Auth::check())
 		{
 			//Saving The Data
 			$saveData = new Exec;
 			$saveData->user_id = Auth::user()->id;
-			$saveData->init_amount = "10";
-			$saveData->converted_amount = "12";
-			$saveData->day = "Monday";
+			$saveData->init_amount = $request->input("from");
+			$saveData->converted_amount = $request->input("to");
 			$saveData->monday = $days['Monday'];
 			$saveData->tues = $days['Tuesday'];
 			$saveData->wends = $days['Wednesday'];
@@ -34,15 +33,10 @@ public function advanced(Request $request)
 			$saveData->highest = $days['Highest'];
 			$saveData->lowestaverage = $lowestAvg;
 			$saveData->saving = $days['Saving'];
+			$saveData->day = $request->input("amount");
 			$saveData->save();
 		}
 
 		print_r(json_encode($days));
 	}
-
-
-
-
-
-
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+
 use DB;
 
 class AccountController extends Controller
@@ -15,11 +16,11 @@ class AccountController extends Controller
 		if(Auth::check())
 		{
 			$auth = Auth::user()->id;
-			$data = DB::table('exec')->where('user_id',$auth)->paginate(5);
+			$data = DB::table('exec')->orderBy('created_at', 'desc')->where('user_id',$auth)->paginate(10);
 			return view('account')->with('name', $data);
 		}
 		else{
-			echo "Need to be logged in";
+			return redirect('/');
 		}
 
 	}

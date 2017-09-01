@@ -2,23 +2,46 @@
 
 @section('style')
 <style>
-.col-md-2{
-  margin-bottom: 100px;
-}
-
 .row{
     margin: 0 auto;
     width:80%;
-    color:#fff;
 }
 
 
-.row :nth-child(even){
-  background-color: #5cb85c;
+body{
+
+  background-color: #ffffff;
+
 }
-.row :nth-child(odd){
-  background-color: #5bc0de;
+
+
+#result-info p{
+
+  margin:0;
 }
+
+.col-md-offset-2{
+
+  background-color: #ffffff;
+}
+
+#result{
+
+background-color: #ffffff;
+
+
+}
+
+.row{
+  font-size:20px;
+}
+
+.centered-row
+{ 
+  margin: auto; max-width: 300px;
+
+}
+
 </style>
 @endsection
 
@@ -26,36 +49,87 @@
 
 
 
-
-<div id="result">
-<div class="row">
-<center>
 @foreach ($data as $object)
+
+<div class="col-md-8 col-md-offset-2">
+<div id="result-info" >
+<div class="panel panel-default">
+  <div class="panel-body" style="font-size:20px;">
+   Date: {{ $object-> created_at}}<br>
+    Initial Currency: {{ $object-> init_amount}}<br>
+    Converted Currency: {{ $object-> converted_amount}}<br>
+    Amount: {{ $object->day}}<br>
+  </div>
+  @php
+  $user_cur = $object->converted_amount
+  @endphp
+</div>
+</div>
+</div>
+
+<div id="result" >
    
-  <div id="mon" class="col-md-2">Monday  <br>{{ $object->monday }}</div>
-  <div id="tues" class="col-md-2">Monday <br>{{ $object->tues }}</div>
-  <div id="wends" class="col-md-2">Wendnesday<br> {{ $object->wends }} </div>
-  <div id="thurs" class="col-md-2">Thursday<br> {{ $object->thurs }}</div>
-  <div id="fri" class="col-md-2">Friday <br> {{ $object->fri }} </div>
-</center>
+<div class="col-md-offset-1">
+<div class="row">
+  <div id="mon" class="col-md-2">Monday<br>{{$user_cur}}{{number_format($object->monday,2)}}</div>
+  <div id="tues" class="col-md-2">Tuesday<br>{{$user_cur}}{{ number_format($object->tues,2) }}</div>
+  <div id="wends" class="col-md-2">Wendnesday<br>{{$user_cur}}{{ number_format($object->wends,2)  }}</div>
+  <div id="thurs" class="col-md-2">Thursday<br>{{$user_cur}}{{ number_format($object->thurs,2)  }}</div>
+  <div id="fri" class="col-md-2">Friday<br>{{$user_cur}}{{$user_cur}}{{ number_format($object->fri,2)  }}</div>
+</div>
+</div>
+
 </div>
 
 
+<div class="col-md-offset-1">
 <div class="row">
-<center>
-  <div id="highest" class="col-md-2">Highest<br> {{ $object->highest }}</div>
-  <div id="lowest" class="col-md-2">Lowest<br> {{ $object->lowestaverage }}</div>
-  </center>
+  <div id="highest" class="col-md-2">Highest<br>{{$user_cur}}{{number_format( $object->highest,2)}}</div>
+  <div id="lowest" class="col-md-2">Lowest<br>{{$user_cur}}{{$object->lowestaverage}}</div>
+</div>
 </div>
 
+<div class="col-md-offset-1">
 <div class="row">
-<center>
-  <div id="lowest-one" class="col-md-2">Best<br> {{ $object->saving }}</div>
-<center>
+ <b><div id="lowest-one" class="col-md-2" style="font-size:20px;">Best<br>{{$user_cur}}{{$object->lowestaverage}}</div></b>
+</div>
 </div>
 
   
-  @endforeach
 </div>
 
+
+  
+  @endforeach
+
+<div class="col-md-offset-2"
+ <a href="allentries"><button  id="start-over" class="btb btn-primary" style="margin:20px;">Return to List</button></a>
+</div>
+
+
 @endsection
+
+@section('scripts')
+
+<script>
+
+
+
+$("#start-over").click(function(){
+window.location.href = '/allentries';
+});
+
+</script>
+
+
+@endsection
+
+
+
+
+
+
+
+
+
+ 

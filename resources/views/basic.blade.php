@@ -82,6 +82,26 @@ button{
 </div>
 </div>
 
+<div class="modal fade" id="error-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 
 
@@ -102,6 +122,7 @@ button{
 </script>
 <script>
 
+//$("#error-modal").modal("show")
 
 
 $(window).ready(function()
@@ -149,7 +170,6 @@ function getData()
    origin = currdata[origin];
    from = currdata[from];
 
-	
 	 $.ajaxSetup({
      headers: {
     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -167,7 +187,7 @@ function getData()
     console.log(invert);
     $("#panel-width").hide();
     console.log(invert[response[0]]);
-    $("#currency").append("<center><h4>"+ amount +" " + invert[response[0]]+ " in "+ invert[response[1]] +" is " + response[3] + " <br>Date: " + response[2] + "</h4></center>");
+    $("#currency").append("<center><h4>"+ amount +" " + invert[response[0]]+ " in "+ invert[response[1]] +" is " + response[3].toFixed(2) + " <br>Date: " + response[2] + "</h4></center>");
 		}
     });
 
@@ -179,23 +199,23 @@ function getData()
    var response = $.parseJSON(response);
 
 //Contrived way of getting the last 5 months for the chart
-/**
+
    months = [];
    dt = new Date;
    month = dt.getMonth();
   var monthNames = [ "January", "February", "March", "April", "May", "June",
   "July", "August", "September", "October", "November", "December" ];
 
-  var time = month - 5;
+  var time = month - 4;
 
-  for($i=month;$i<=time;$i--)
+  for($i=month;$i>=time;$i--)
   {
-    months = monthNames[$i];
+    months.push(monthNames[$i]);
   }
   
-console.log(months);
 
-**/
+
+
 
 
 
@@ -206,9 +226,9 @@ var chart = new Chart(ctx, {
 
     // The data for our dataset
     data: {
-        labels: ["January", "February", "March", "April", "May"],
+        labels: [months[4], months[3], months[2], months[1], months[0]],
         datasets: [{
-            label: "My First dataset",
+            label: origin + " in "+from,
             backgroundColor: 'rgb(255, 99, 132)',
             borderColor: 'rgb(255, 99, 132)',
             data: [response[4], response[3], response[2], response[1], response[0]],

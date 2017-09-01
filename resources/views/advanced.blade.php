@@ -45,6 +45,18 @@
 </div>
 
 <div class="col-md-8 col-md-offset-2">
+
+<div id="result-info" style="display:none">
+<div class="panel panel-default">
+  <div class="panel-body">
+    <div style="font-size:20px;" id="currdata-init"></div>
+    <p>Using a crafted 
+    algorithm, we give you the best day of the week to buy your currency</p>
+  </div>
+</div>
+</div>
+
+
 <div class = "panel panel-primary" id="inputdiv">
 <div class = "panel-heading">
       <h3 class = "panel-title">Enter Details</h3>
@@ -52,7 +64,7 @@
   <div class = "panel-body">
  <form>
  Amount:<br>
-  <input class="form-control" placeholder="Amount" type="text" name="amount" id="amount"><br>
+  <input style="width:100px;"  class="form-control" placeholder="Amount" type="text" name="amount" id="amount"><br>
   <div class="dropdown">
   <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" style="margin-bottom:5px;">
     Select From:
@@ -64,7 +76,7 @@
     <li><span>&pound;</span></li>
   </ul>
 </div>
-  <input class="form-control" type="text" name="to" id="to" disabled><br>
+  <input style="width:200px;"  class="form-control" type="text" name="to" id="to" disabled><br>
     <div class="dropdown">
   <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" style="margin-bottom:5px;">
     Select To:
@@ -84,9 +96,9 @@
 </div>
 </div>
 
-<div id="result">
+<div id="result" style="display:none;">
 
-<div class="col-md-offset-2">
+<div class="col-md-offset-1">
 <div class="row">
   <div id="mon" class="col-md-2">Monday<br></div>
   <div id="tues" class="col-md-2">Tuesday<br></div>
@@ -97,22 +109,30 @@
 </div>
 
 
-<div class="col-md-offset-2">
+<div class="col-md-offset-1">
 <div class="row">
   <div id="highest" class="col-md-2">Highest<br></div>
   <div id="lowest" class="col-md-2">Lowest<br></div>
 </div>
 </div>
  
-<div class="col-md-offset-2">
+<div class="col-md-offset-1">
 <div class="row">
  <b><div id="lowest-one" class="col-md-2" style="font-size:20px;">Best<br></div></b>
 </div>
 </div>
 
-<div class="col-md-offset-2">
+<div class="col-md-offset-1">
 <div  class="row">
-<div id="todaysday" class="col-md-2">Todays Day:<br></div>
+<div id="todaysday" class="col-md-2">Todays Day:<br></div><br>
+
+</div>
+</div>
+
+<div class="col-md-offset-1">
+<div  class="row">
+<button  onclick="window.location.reload()" id="start-over" class="btb btn-primary" style="margin:20px;">Start Over</button>
+
 </div>
 </div>
   
@@ -156,6 +176,7 @@ $(window).ready(function()
 
 $("#clicked").click(function()
   {
+
     getData();
 
   });
@@ -170,8 +191,9 @@ function getData()
 	 var amount = $("#amount").val();
 	 var origin = $("#to").val();
 	 var from = $("#from").val();
-   origin = currdata[origin];
-   from = currdata[from];
+   $("#currdata-init").append("<p>"+from+ " in " + origin + " in recent months"+"</p>");
+   var origin1 = currdata[origin];
+   var from1 = currdata[from];
 
 	
 	 $.ajaxSetup({
@@ -191,7 +213,7 @@ function getData()
  $.ajax({
     method:"post",
     url:"advanced",
-    data:{from:origin,to:from,amount:amount},
+    data:{from:origin1,to:from1,amount:amount},
     success: function(response){
     console.log(response);
     var response = $.parseJSON(response);
@@ -208,8 +230,13 @@ function getData()
     $("#inputdiv").hide();
     $.LoadingOverlay("hide");
     $("#result").show();
+    $("#result-info").show();
 
-    if(response.CurrentDay == response.Highest)
+    console.log(response.CurrentDay);
+    console.log(response.LowestAverage[1]);
+
+
+    if(response.CurrentDay == response.LowestAverage[1])
     {
       $('#todaysday').css( "color", "green" );
 

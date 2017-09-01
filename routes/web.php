@@ -29,6 +29,8 @@ Route::get('/procal', function(){
 });
 Route::post('/advanced','AdvancedController@advanced');
 
+Route::get('/advanceddev','AdvancedController@advanced');
+
 Route::get('/datatest','AdvancedController@database');
 
 Route::get('/datatest','AdvancedController@database');

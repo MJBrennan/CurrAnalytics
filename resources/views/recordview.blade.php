@@ -47,6 +47,12 @@ background-color: #ffffff;
 
 @section('content')
 
+<div class="page-header">
+   <h4>
+     Transaction Details:
+   </h4>
+</div>
+
 
 
 @foreach ($data as $object)
@@ -75,7 +81,7 @@ background-color: #ffffff;
   <div id="tues" class="col-md-2">Tuesday<br>{{$user_cur}}{{ number_format($object->tues,2) }}</div>
   <div id="wends" class="col-md-2">Wendnesday<br>{{$user_cur}}{{ number_format($object->wends,2)  }}</div>
   <div id="thurs" class="col-md-2">Thursday<br>{{$user_cur}}{{ number_format($object->thurs,2)  }}</div>
-  <div id="fri" class="col-md-2">Friday<br>{{$user_cur}}{{$user_cur}}{{ number_format($object->fri,2)  }}</div>
+  <div id="fri" class="col-md-2">Friday<br>{{$user_cur}}{{ number_format($object->fri,2)  }}</div>
 </div>
 </div>
 
@@ -84,8 +90,8 @@ background-color: #ffffff;
 
 <div class="col-md-offset-1">
 <div class="row">
-  <div id="highest" class="col-md-2">Highest<br>{{$user_cur}}{{number_format( $object->highest,2)}}</div>
-  <div id="lowest" class="col-md-2">Lowest<br>{{$user_cur}}{{$object->lowestaverage}}</div>
+  <div id="highest" class="col-md-2">Highest<br>{{$user_cur}}{{$object->lowestaverage}}</div>
+  <div id="lowest" class="col-md-2">Lowest<br>{{$user_cur}}{{number_format( $object->highest,2)}}</div>
 </div>
 </div>
 

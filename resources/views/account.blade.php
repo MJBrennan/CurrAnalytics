@@ -10,6 +10,11 @@
 	width:80%;
 }
 
+body{
+
+	background-color:#ffffff;
+}
+
 
 
 </style>
@@ -26,7 +31,11 @@
 </div>
 <div class="row">
 
+@if($name->isEmpty())
 
+<center><h4>None Yet!</h4></center>
+
+@endif
 
 
 <center><ul class="list-group">

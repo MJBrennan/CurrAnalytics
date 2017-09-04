@@ -17,17 +17,57 @@
 
         background-color:#ffffff;
        }
-     html{
+     body{
 
          background-color:#ffffff;
+        }
 
+     .panel .panel-heading{
+        background-color:#FFDF00;
+      }
+
+      .panel{
+          border-color:#FFDF00;
+      }
+
+     button{
+        background-color:#FFDF00;
+    }
+
+        .footer {
+          position: absolute;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          padding: 1rem;
+          background-color: #ffffff;
+          text-align: center;
         }
 
         .page-header{
-
          text-align: center;
-
         }
+
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  position: relative;
+  margin: 0;
+  padding-bottom: 6rem;
+  min-height: 100%;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+}
+
+
 
 
 
@@ -45,12 +85,12 @@
 <body>
 
     <div id="app">
-        <nav class="navbar navbar-default navbar-static-top">
+        <nav class="navbar navbar-default navbar-static-top" style="background-color:#FFDF00">
             <div class="container">
                 <div class="navbar-header">
 
                     <!-- Collapsed Hamburger -->
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
+                    <button type="button" class="navbar-toggle collapsed" style="border-color:#ffffff;background-color:#FFDF00" data-toggle="collapse" data-target="#app-navbar-collapse">
                         <span class="sr-only">Toggle Navigation</span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
@@ -110,11 +150,22 @@
 
 
         @yield('content')
+
+    
+
+        
+
     </div>
+
+    <div class="footer" style="background-color:#FFDF00" >MJBrennan  ©</div>
+
+
+   
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('js/generics.js') }}"></script>
+    <script src="{{ asset('js/symbols.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/jquery.loadingoverlay/latest/loadingoverlay.min.js"></script>
      @yield('scripts')
 

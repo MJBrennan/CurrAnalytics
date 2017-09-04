@@ -12,6 +12,12 @@ button{
 
 }
 
+.scrollable-menu {
+    height: auto;
+    max-height: 100px;
+    overflow-x: hidden;
+}
+
 </style>
 
 
@@ -26,7 +32,7 @@ button{
 </div>
 
 <div class="col-md-8 col-md-offset-2">
-<div class = "panel panel-primary" id="panel-width">
+<div class = "panel" id="panel-width">
 <div class = "panel-heading">
       <h3 class = "panel-title">Enter Details</h3>
    </div>
@@ -39,10 +45,8 @@ button{
     Select From:
     <span class="caret"></span>
   </button>
-  <ul id="list" class="dropdown-menu" aria-labelledby="dropdownMenu1">
-    <li><span>&euro;</span></li>
-    <li><span>&#36;</span></li>
-    <li><span>&pound;</span></li>
+  <ul id="list" class="dropdown-menu scrollable-menu" role="menu">
+  
   </ul>
 </div>
   <input class="form-control" style="width:200px;" type="text" name="to" id="to" disabled><br>
@@ -51,10 +55,8 @@ button{
     Select To:
     <span class="caret"></span>
   </button>
-  <ul id="list2" class="dropdown-menu" aria-labelledby="dropdownMenu1">
-    <li><span>&euro;</span></li>
-    <li><span>&#36;</span></li>
-    <li><span>&pound;</span></li>
+  <ul id="list2" class="dropdown-menu scrollable-menu" aria-labelledby="dropdownMenu1">
+  
   </ul>
 </div>
   <input style="width:200px;" class="form-control" type="text" name="from" id="from" disabled>
@@ -86,17 +88,16 @@ button{
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Error</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        ...
+        Please Review Errors
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
       </div>
     </div>
   </div>
@@ -128,8 +129,22 @@ button{
 $(window).ready(function()
 {
 
-var currdata = {"€":"EUR","£":"GBP","$":"USD"};
 
+var len = symbolsarr.length;
+
+  for(i=0;i<=len-1;i++)
+  {
+
+     $("#list").append("<li><span>"+ symbolsarr[i] +"</span></li>");
+
+  }
+
+   for(i=0;i<=len-1;i++)
+  {
+
+     $("#list2").append("<li><span>"+ symbolsarr[i] +"</span></li>");
+
+  }
 
 
 
@@ -145,7 +160,6 @@ $('#list2 li').click(function(e)
 { 
  var curr = $(this).find("span").text();
  $("#from").val(curr);
- //console.log(curr);
 });
 
 
@@ -153,11 +167,24 @@ $('#list2 li').click(function(e)
   var ctx = document.getElementById('myChart').getContext('2d');
 	$("#clicked").click(function()
 	{
-		getData();
-    setTimeout(function(){
-   $("#result-panel").show();
-   $.LoadingOverlay("hide");
+
+   var amt = $("#amount").val();
+   var or = $("#to").val();
+   var fr = $("#from").val();
+
+
+if(amt == '' || or == '' || fr == ''|| fr == or )
+{
+ $("#error-modal").modal("show");
+
+  return;
+}else{
+  getData();
+  setTimeout(function(){
+  $("#result-panel").show();
+  $.LoadingOverlay("hide");
   }, 2000); 
+}
 	});
 
 

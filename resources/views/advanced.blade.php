@@ -46,6 +46,25 @@
 
 <div class="col-md-8 col-md-offset-2">
 
+<div class="modal fade" id="error-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Error</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Please Review Errors
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div id="result-info" style="display:none">
 <div class="panel panel-default">
   <div class="panel-body">
@@ -57,7 +76,7 @@
 </div>
 
 
-<div class = "panel panel-primary" id="inputdiv">
+<div class = "panel" id="inputdiv">
 <div class = "panel-heading">
       <h3 class = "panel-title">Enter Details</h3>
    </div>
@@ -115,6 +134,13 @@
   <div id="lowest" class="col-md-2">Lowest<br></div>
 </div>
 </div>
+
+<div class="col-md-offset-1">
+<div  class="row">
+<div id="gains" class="col-md-2">Potential Gains:<br></div><br>
+
+</div>
+</div>
  
 <div class="col-md-offset-1">
 <div class="row">
@@ -134,8 +160,7 @@
 <button  onclick="window.location.reload()" id="start-over" class="btb btn-primary" style="margin:20px;">Start Over</button>
 
 </div>
-</div>
-  
+</div>  
 </div>
 
 
@@ -177,7 +202,19 @@ $(window).ready(function()
 $("#clicked").click(function()
   {
 
+  var amt = $("#amount").val();
+   var or = $("#to").val();
+   var fr = $("#from").val();
+
+
+if(amt == '' || or == '' || fr == ''|| fr == or )
+{
+  $("#error-modal").modal("show");
+  return;
+}else{
+
     getData();
+  }
 
   });
 
@@ -223,20 +260,20 @@ function getData()
     $("#wends").append("<p>"+ origin +response.Wednesday.toFixed(2) +"</p>");
     $("#thurs").append("<p>"+ origin +response.Thursday.toFixed(2) +"</p>");
     $("#fri").append("<p>"+ origin +response.Friday.toFixed(2) +"</p>");
-    $("#highest").append("<p>"+ origin +response.Highest.toFixed(2) +"</p>");
-    $("#lowest").append("<p>"+ origin +response.LowestAverage[0] +"</p>");
-    $("#lowest-one").append("<p>" + response.LowestAverage[1]+"</p>");
+    $("#highest").append("<p>"+ origin +response.HighestAverage[0].toFixed(2) + "," + response.HighestAverage[1] +"</p>");
+    $("#lowest").append("<p>"+ origin +response.LowestAverage[0].toFixed(2) + "," + response.LowestAverage[1] +"</p>");
+    $("#gains").append("<p>"+ origin +response.Saving.toFixed(2) +"</p>");
+    $("#lowest-one").append("<p>" + response.HighestAverage[1]+"</p>");
     $("#todaysday").append("<p>" + response.CurrentDay +"</p>");
     $("#inputdiv").hide();
     $.LoadingOverlay("hide");
     $("#result").show();
     $("#result-info").show();
 
-    console.log(response.CurrentDay);
-    console.log(response.LowestAverage[1]);
+    console.log(response);
 
 
-    if(response.CurrentDay == response.LowestAverage[1])
+    if(response.CurrentDay == response.HighestAverage[1])
     {
       $('#todaysday').css( "color", "green" );
 

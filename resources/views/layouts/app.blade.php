@@ -26,6 +26,8 @@
         background-color:#FFDF00;
       }
 
+      .navbar-nav > a > .dropdown-menu { background-color: #FFDF00; }
+
       .panel{
           border-color:#FFDF00;
       }
@@ -126,13 +128,13 @@ body {
 
                                 <ul class="dropdown-menu" style="background-color:#FFDF00" role="menu">
                                     <li>
-                                        <a href="{{ route('logout') }}"
+                                        <a style="background-color:#FFDF00" href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                             Logout
                                         </a>
 
-                                         <a href="allentries">
+                                         <a style="background-color:#FFDF00" href="allentries">
                                             Account
                                         </a>
 

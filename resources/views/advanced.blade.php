@@ -20,7 +20,12 @@
 .centered-row
 { 
   margin: auto; max-width: 300px;
+}
 
+.scrollable-menu {
+    height: auto;
+    max-height: 100px;
+    overflow-x: hidden;
 }
 
 
@@ -89,10 +94,8 @@
     Select From:
     <span class="caret"></span>
   </button>
-  <ul id="list" class="dropdown-menu" aria-labelledby="dropdownMenu1">
-    <li><span>&euro;</span></li>
-    <li><span>&#36;</span></li>
-    <li><span>&pound;</span></li>
+  <ul id="list" class="dropdown-menu scrollable-menu" aria-labelledby="dropdownMenu1">
+
   </ul>
 </div>
   <input style="width:200px;"  class="form-control" type="text" name="to" id="to" disabled><br>
@@ -101,10 +104,8 @@
     Select To:
     <span class="caret"></span>
   </button>
-  <ul id="list2" class="dropdown-menu" aria-labelledby="dropdownMenu1">
-    <li><span>&euro;</span></li>
-    <li><span>&#36;</span></li>
-    <li><span>&pound;</span></li>
+  <ul id="list2" class="dropdown-menu scrollable-menu" aria-labelledby="dropdownMenu1">
+  
   </ul>
 </div>
   <input style="width:200px;" class="form-control" type="text" name="from" id="from" disabled>
@@ -174,9 +175,25 @@
 
 <script>
 
+var len = symbolsarr.length;
+
+  for(i=0;i<=len-1;i++)
+  {
+
+     $("#list").append("<li><span>"+ symbolsarr[i] +"</span></li>");
+
+  }
+
+   for(i=0;i<=len-1;i++)
+  {
+
+     $("#list2").append("<li><span>"+ symbolsarr[i] +"</span></li>");
+
+  }
+
 $("#result").hide();
 
-var currdata = {"€":"EUR","£":"GBP","$":"USD"};
+
 
 
 $('#list li').click(function(e) 

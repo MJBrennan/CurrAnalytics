@@ -90,7 +90,7 @@ body {
                 <div class="navbar-header">
 
                     <!-- Collapsed Hamburger -->
-                    <button type="button" class="navbar-toggle collapsed" style="border-color:#ffffff;background-color:#FFDF00" data-toggle="collapse" data-target="#app-navbar-collapse">
+                    <button type="button" class="navbar-toggle collapsed" style="border-color:#ffffff;background-color:#FFDF00" data-toggle="collapse"  data-target="#app-navbar-collapse">
                         <span class="sr-only">Toggle Navigation</span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
@@ -119,12 +119,12 @@ body {
                             <li><a href="{{ route('register') }}">Register</a></li>
                         @else
                             <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                <a href="#" class="dropdown-toggle" style="background-color:#FFDF00" data-toggle="dropdown" role="button" aria-expanded="false">
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
 
 
-                                <ul class="dropdown-menu" role="menu">
+                                <ul class="dropdown-menu" style="background-color:#FFDF00" role="menu">
                                     <li>
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();

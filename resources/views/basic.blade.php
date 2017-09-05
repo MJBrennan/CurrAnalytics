@@ -65,7 +65,7 @@ button{
 <button style="margin-top:10px;" class="btn btn-primary" id="clicked">Submit</button>
 </div>
 </div>
-<div id="result-panel" style="display:none">
+<div id="result-panel" style="display:none;">
 <div class = "panel panel-primary" id="panel-width">
 <div class = "panel-heading">
       <h3 class = "panel-title">Result</h3>

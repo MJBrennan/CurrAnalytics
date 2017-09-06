@@ -32,10 +32,10 @@
 		$output = [];
 
 		$day1 = date("Y-m-d",strtotime("-1"."days"));
-		$day2 = date("Y-m-d",strtotime("-8"."days"));
-		$day3 = date("Y-m-d",strtotime("-15"."days"));
-		$day4 = date("Y-m-d",strtotime("-22"."days"));
-		$day5 = date("Y-m-d",strtotime("-29"."days"));
+		$day2 = date("Y-m-d",strtotime("-30"."days"));
+		$day3 = date("Y-m-d",strtotime("-60"."days"));
+		$day4 = date("Y-m-d",strtotime("-90"."days"));
+		$day5 = date("Y-m-d",strtotime("-120"."days"));
 		$days[] = $day1;
 		$days[] = $day2;
 		$days[] = $day3;

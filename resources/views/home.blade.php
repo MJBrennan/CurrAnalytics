@@ -11,27 +11,33 @@
                 <div class="panel-heading">Overview</div>
 
                 <div class="panel-body">
-                  What is CurrAnalytics? A new product conceptualized, designed and programmed by me MJBrennan. I've always had an interest in financial markets and wanted to contribute. There are three main parts to this product so far. <br>
+                  What is CurrAnalytics? A new product conceptualized, designed and programmed by me MJBrennan. I've always had an interest in financial markets and wanted to contribute. There are three main parts to this product so far. Advanced Convertor, Basic Convertor and Account Managment. Over 20 major currencies are supported with supportfor crypto currencies coming later on <br>
 <br>
 
     <center><p><img src="http://i.imgur.com/iis0gj9.jpg" style="width:80%;"></img></p></center>
-                 <p> First there is the advanced translator.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+            
 
                  <b><p>Advanced Convertor</p></b>
                  <p>
-                 <p> First there is the advanced translator.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. D</p>
+                 <p> First there is the Advanced Translator.D</p>
 
                   <b><p>Basic Convertor</p></b>
                  <p>
-                 <p> First there is the advanced translator.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. D</p>
+                 <p>Also included is a simple currency convertor. You can view the performance of a currency via charts as well</p>
 
                  <b><p>Account</p></b>
                  <p>
-                 <p> First there is the advanced translator.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. D</p>
+                 <p>Its possible to track your past searches in the account section. </p>
 
                  <b><p>Future</p></b>
                  <p>
-                 <p> First there is the advanced translator.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. D</p>
+                 <p>I'm planning on adding support for cryptocurrencys like Bitcoin very shortly. In addition I'm always researching new ways to improve calculations. In addition the next version will see the ability to set currency prefrences in the account section</p>
+
+                   <b><p>Tech</p></b>
+                 <p>
+                 <p>What tech is behind this application?. PHP 7.1 with Laravel with plenty of usual Javascript, HTML and CSS. A special thanks for Fixer.io for providing a robust api for currency data.</p>
+
+
                 </div>
             </div>
         </div>

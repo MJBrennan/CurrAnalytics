@@ -12,6 +12,12 @@ button{
 
 }
 
+.footer{
+
+  display:none;
+
+}
+
 .scrollable-menu {
     height: auto;
     max-height: 100px;
@@ -66,7 +72,7 @@ button{
 </div>
 </div>
 <div id="result-panel" style="display:none;">
-<div class = "panel panel-primary" id="panel-width">
+<div class = "panel" id="panel-width">
 <div class = "panel-heading">
       <h3 class = "panel-title">Result</h3>
    </div>

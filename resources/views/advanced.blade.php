@@ -7,6 +7,13 @@
 <style>
 
 
+.footer{
+
+  display:none;
+
+}
+
+
 
 .row{
     margin: 0 auto;

@@ -284,8 +284,8 @@ function getData()
     $("#wends").append("<p>"+ origin +response.Wednesday.toFixed(2) +"</p>");
     $("#thurs").append("<p>"+ origin +response.Thursday.toFixed(2) +"</p>");
     $("#fri").append("<p>"+ origin +response.Friday.toFixed(2) +"</p>");
-    $("#highest").append("<p>"+ origin +response.HighestAverage[0].toFixed(2) + ",<br>" + response.HighestAverage[1] +"</p>");
-    $("#lowest").append("<p>"+ origin +response.LowestAverage[0].toFixed(2) + ",<br>" + response.LowestAverage[1] +"</p>");
+    $("#highest").append("<p>"+ origin +response.HighestAverage[0].toFixed(2) + ", " + response.HighestAverage[1] +"</p>");
+    $("#lowest").append("<p>"+ origin +response.LowestAverage[0].toFixed(2) + ", " + response.LowestAverage[1] +"</p>");
     $("#gains").append("<p>"+ origin +response.Saving.toFixed(2) +"</p>");
     $("#lowest-one").append("<p>" + response.HighestAverage[1]+"</p>");
     $("#todaysday").append("<p>" + response.CurrentDay +"</p>");

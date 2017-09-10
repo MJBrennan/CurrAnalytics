@@ -24,7 +24,7 @@ Route::post('/standard','StandardController@convertor');
 Route::get('/basic', function(){
 	return view('basic');
 });
-Route::get('/procal', function(){
+Route::get('/advancedconvertor', function(){
 	return view('advanced');
 });
 Route::post('/advanced','AdvancedController@advanced');

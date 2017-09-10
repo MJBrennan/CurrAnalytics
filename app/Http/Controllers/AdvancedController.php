@@ -16,7 +16,7 @@ public function advanced(Request $request)
 	$advanced = new Curl($request->input("amount"),$request->input("from"),$request->input("to"));
 	$array = json_decode(json_encode($advanced), true);
 	$days = $array['returnedData'];
-	$lowestAvg = number_format($days["HighestAverage"][0],2).",<br> ". $days["HighestAverage"][1];
+	$lowestAvg = number_format($days["HighestAverage"][0],2).", ". $days["HighestAverage"][1];
 	
 		if(Auth::check())
 		{

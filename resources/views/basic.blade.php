@@ -185,11 +185,25 @@ if(amt == '' || or == '' || fr == ''|| fr == or )
 
   return;
 }else{
+
+
+
+try{
+
   getData();
   setTimeout(function(){
   $("#result-panel").show();
   $.LoadingOverlay("hide");
   }, 2000); 
+
+}catch(error)
+{
+  $("#panel-width").show();
+   alert(error)
+}
+
+
+
 }
 	});
 

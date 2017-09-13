@@ -11,8 +11,8 @@
                 <div class="panel-heading">Overview</div>
 
                 <div class="panel-body">
-                  What is CurrAnalytics? A new product conceptualized, designed and programmed by me MJBrennan. I've always had an interest in financial markets and wanted to contribute. There are three main parts to this product so far. Advanced Convertor, Basic Convertor and Account Managment. Over 20 major currencies are supported with support for crypto currencies coming later on <br>
-<br>
+                 What is CurrAnalytics? A new product conceptualized, designed and programmed by me MJBrennan. I've always had an interest in financial markets and wanted to contribute. There are three main parts to this product so far. Advanced Convertor, Basic Convertor and Account Managment. Over 20 major currencies are supported with support for crypto currencies coming later onn<br>
+                <br>
 
     <center><p><img src="http://i.imgur.com/iis0gj9.jpg" style="width:80%;"></img></p></center>
             

@@ -159,7 +159,6 @@ $('#list li').click(function(e)
 { 
  var curr = $(this).find("span").text();
  $("#to").val(curr);
- //console.log(curr);
 });
 
 $('#list2 li').click(function(e) 
@@ -230,10 +229,7 @@ function getData()
     success: function(response){
     var response = $.parseJSON(response);
     var invert = _.invert(currdata);
-    console.log(response);
-    console.log(invert);
     $("#panel-width").hide();
-    console.log(invert[response[0]]);
     $("#currency").append("<center><h4>"+ amount +" " + invert[response[0]]+ " in "+ invert[response[1]] +" is " + response[3].toFixed(2) + " <br>Date: " + response[2] + "</h4></center>");
 		}
     });

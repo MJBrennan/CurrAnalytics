@@ -276,7 +276,6 @@ function getData()
     url:"advanced",
     data:{from:origin1,to:from1,amount:amount},
     success: function(response){
-    console.log(response);
     var response = $.parseJSON(response);
     var monday = response.Monday;
     $("#mon").append("<p>"+ origin +response.Monday.toFixed(2) +"</p>");
@@ -293,10 +292,7 @@ function getData()
     $.LoadingOverlay("hide");
     $("#result").show();
     $("#result-info").show();
-
-    console.log(response);
-
-
+    
     if(response.CurrentDay == response.HighestAverage[1])
     {
       $('#todaysday').css( "color", "green" );

@@ -138,6 +138,10 @@ body {
                                             Account
                                         </a>
 
+                                        <a style="background-color:#FFDF00" href="prefs">
+                                            Prefrences
+                                        </a>
+
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                             {{ csrf_field() }}
                                         </form>

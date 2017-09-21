@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 use DB;
 
@@ -25,6 +26,21 @@ class AccountController extends Controller
 
 	}
 
+
+	public function savePrefs(Request $req)
+	{
+
+		$loggedin = Auth::id();
+		DB::table('users')
+            ->where('id', $loggedin)->update(['from' => $req->input("from")]);
+
+        DB::table('users')
+            ->where('id', $loggedin)->update(['to' => $req->input("to")]);
+
+            Session::flash('message', 'Prefrences Saved'); 
+
+           return "Done";
+	}
 
 	public function individualRecords($recordid)
 		{

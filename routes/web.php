@@ -53,6 +53,8 @@ Route::get('/prefs', function(){
 	return view('prefs');
 });
 
+Route::post('/changeprefs','AccountController@savePrefs');
+
 
 
 

@@ -148,7 +148,8 @@ if(Auth::check())
 
 
 @section('scripts')
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"/>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js">
 </script>
 <script>
 
@@ -267,6 +268,18 @@ function getData()
     success: function(response){
    var response = $.parseJSON(response);
 
+   var monthArr = [];
+
+   for (var i = 0; i <= 4; i++) 
+   {
+     
+   var prevMonthName  = moment().subtract(i, "month").format('MMMM');
+   monthArr.push(prevMonthName);
+   
+   }
+
+   console.log(monthArr);
+
 //Contrived way of getting the last 5 months for the chart
 
    months = [];
@@ -295,7 +308,7 @@ var chart = new Chart(ctx, {
 
     // The data for our dataset
     data: {
-        labels: [months[4], months[3], months[2], months[1], months[0]],
+        labels: [monthArr[4], monthArr[3], monthArr[2], monthArr[1], monthArr[0]],
         datasets: [{
             label: origin + " in "+from,
             backgroundColor: 'rgb(255, 99, 132)',

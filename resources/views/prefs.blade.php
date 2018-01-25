@@ -18,30 +18,6 @@
 @section('content')
 
 
-@php
-
-$valfrom = '';
-$valtwo = '';
-
-$from = [];
-
-if(Auth::check())
-{
-//from
-  $id= Auth::user()->id;
-  $sel = DB::table('users')->select('from')->where('id', $id)->get();
-  //print_r($sel);
-  $valfrom =  $sel[0]->from;
-
-  //to
-
-  $id= Auth::user()->id;
-  $sel = DB::table('users')->select('to')->where('id', $id)->get();
-  //print_r($sel);
-  $valtwo =  $sel[0]->to;
-}
-
-@endphp
 
 
 
@@ -67,7 +43,7 @@ if(Auth::check())
   
   </ul>
 </div>
-  <input class="form-control" style="width:200px;" type="text" name="to" id="to" value="{{$valfrom}}" disabled><br>
+  <input class="form-control" style="width:200px;" type="text" name="to" id="to" disabled><br>
     <div class="dropdown">
   <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" style="margin-bottom:5px;">
     Select To:
@@ -77,7 +53,7 @@ if(Auth::check())
   
   </ul>
 </div>
-  <input style="width:200px;" class="form-control" type="text" name="from" id="from" value="{{$valtwo}}" disabled>
+  <input style="width:200px;" class="form-control" type="text" name="from" id="from"  disabled>
  </form>
 
 <button style="margin-top:10px;" class="btn btn-primary" id="clicked">Save</button>

@@ -129,7 +129,7 @@
 <div class="row">
   <div id="mon" class="col-md-2">Monday<br></div>
   <div id="tues" class="col-md-2">Tuesday<br></div>
-  <div id="wends" class="col-md-2">Wendnesday<br></div>
+  <div id="wends" class="col-md-2">Wednesday<br></div>
   <div id="thurs" class="col-md-2">Thursday<br></div>
   <div id="fri" class="col-md-2">Friday<br></div>
 </div>
